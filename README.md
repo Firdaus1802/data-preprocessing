@@ -37,6 +37,9 @@ Data mining IPYNB/
 │   ├── Market_Basket_Optimisation.csv      # Dataset benchmark Kaggle transaksi supermarket (7.501 baris)
 │   ├── market_basket_optimisation.csv      # Dataset terstruktur dengan kolom transaction_id dan item1-20
 │   └── market_basket_optimisation_preprocessing.ipynb # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
+├── 06_Healthcare_Stroke/
+│   ├── healthcare_dataset_stroke_data.csv  # Dataset rekam medis pasien stroke (5.110 baris, 12 atribut)
+│   └── healthcare_stroke_preprocessing.ipynb # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── _backup_arsip/                       # Arsip file eksperimen
 └── README.md
 ```
@@ -96,11 +99,20 @@ Setiap notebook mencakup empat tahapan utama pra-pemrosesan data:
 - **Duplikat:** 2.325 baris transaksi dengan kombinasi item identik.
 - **Outlier:** Rata-rata ukuran keranjang belanja adalah 3,91 item ($Min = 1, Max = 20$). Kuartil $Q1 = 2$, $Q3 = 5$, $IQR = 3$, dan batas atas outlier adalah 9,5 item. Ditemukan 395 transaksi outlier dengan volume belanja grosir tinggi (10 hingga 20 item).
 
+### 6. Healthcare Stroke Dataset (`06_Healthcare_Stroke`)
+
+- **Jumlah Baris & Kolom:** 5.110 baris data pasien dan 12 atribut klinis serta demografis.
+- **Identifier:** Kolom `id` mencakup 5.110 nomor rekam medis pasien unik.
+- **Missing Value:** Ditemukan 201 nilai kosong (3,93% pada kolom `bmi` atau 0,33% terhadap seluruh sel) yang divisualisasikan dengan Heatmap.
+- **Duplikat:** 0 baris duplikat penuh.
+- **Distribusi Target:** 249 pasien positif stroke (4,87%) dan 4.861 pasien negatif stroke (95,13%).
+- **Outlier:** Berdasarkan analisis parameter klinis menggunakan metode IQR, atribut `avg_glucose_level` memiliki kuartil $Q1 = 77,25$, $Q3 = 114,09$, dan batas atas outlier $169,36$ mg/dL. Ditemukan 627 pasien outlier dengan kadar gula darah tinggi hingga 271,7 mg/dL.
+
 ---
 
 ## Cara Menjalankan
 
-1. Masuk ke direktori notebook yang ingin diuji (`01_BreadBasket`, `02_MarketBasket`, `03_Retail_Bian`, `04_MarketBasket_Analysis`, atau `05_MarketBasket_Optimisation`).
+1. Masuk ke direktori notebook yang ingin diuji (`01_BreadBasket`, `02_MarketBasket`, `03_Retail_Bian`, `04_MarketBasket_Analysis`, `05_MarketBasket_Optimisation`, atau `06_Healthcare_Stroke`).
 2. Jalankan notebook menggunakan Jupyter Notebook, JupyterLab, atau VS Code.
 3. Pastikan file CSV terkait berada pada direktori yang sama dengan notebook.
 4. Eksekusi sel dari atas ke bawah untuk melihat hasil perhitungan dan visualisasi.
