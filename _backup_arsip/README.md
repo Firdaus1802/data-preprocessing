@@ -11,5 +11,6 @@ Folder ini menyimpan file-file draf eksperimen, skrip uji coba awal, serta datas
 - `arsip_market_basket_scratch.ipynb`: Catatan skrip scratch pemrosesan data.
 - `dataset_retail_bersih.csv`: Sampel draf data ritel bersih.
 - `online_retail_raw.csv`: Dataset mentah Online Retail referensi eksternal.
+- `arsip_retail_pos_basket_data.csv`: Dataset transaksi ritel POS modern (10.000 baris, 10 atribut).
 
 > Catatan: Dataset mentah berukuran raksasa (`Retail_Transactions_Dataset.csv` 161 MB / 1 juta baris) disimpan secara lokal dan dikecualikan via `.gitignore` guna mematuhi batas ukuran file GitHub (<100 MB).

@@ -33,6 +33,10 @@ Data mining IPYNB/
 │   ├── market_basket_analysist.csv         # Dataset transaksi belanja riil horizontal (1.863 baris)
 │   ├── market_basket_analysist.xlsx        # File Excel sumber data
 │   └── market_basket_analysis_preprocessing.ipynb # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
+├── 05_MarketBasket_Optimisation/
+│   ├── Market_Basket_Optimisation.csv      # Dataset benchmark Kaggle transaksi supermarket (7.501 baris)
+│   ├── market_basket_optimisation.csv      # Dataset terstruktur dengan kolom transaction_id dan item1-20
+│   └── market_basket_optimisation_preprocessing.ipynb # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── _backup_arsip/                       # Arsip file eksperimen
 └── README.md
 ```
@@ -84,11 +88,19 @@ Setiap notebook mencakup empat tahapan utama pra-pemrosesan data:
 - **Duplikat:** 3 baris transaksi dengan kombinasi item identik.
 - **Outlier:** Rata-rata ukuran keranjang belanja adalah 3,62 item. Kuartil $Q1 = 2$, $Q3 = 5$, dan batas atas outlier adalah 9,5 item. Seluruh transaksi berada dalam rentang normal (maksimal 7 item per keranjang).
 
+### 5. Market Basket Optimisation Dataset (`05_MarketBasket_Optimisation`)
+
+- **Jumlah Baris & Kolom:** 7.501 baris transaksi dan 21 atribut (`transaction_id`, `item1` s.d `item20`).
+- **Identifier:** Kolom `transaction_id` mencakup 7.501 nomor struk unik dengan 119 ragam produk ritel supermarket.
+- **Missing Value:** 120.657 nilai kosong (76,60% terhadap seluruh sel atau 80,43% terhadap kolom produk) yang mencerminkan sifat alami data keranjang belanja horizontal.
+- **Duplikat:** 2.325 baris transaksi dengan kombinasi item identik.
+- **Outlier:** Rata-rata ukuran keranjang belanja adalah 3,91 item ($Min = 1, Max = 20$). Kuartil $Q1 = 2$, $Q3 = 5$, $IQR = 3$, dan batas atas outlier adalah 9,5 item. Ditemukan 395 transaksi outlier dengan volume belanja grosir tinggi (10 hingga 20 item).
+
 ---
 
 ## Cara Menjalankan
 
-1. Masuk ke direktori notebook yang ingin diuji (`01_BreadBasket`, `02_MarketBasket`, `03_Retail_Bian`, atau `04_MarketBasket_Analysis`).
+1. Masuk ke direktori notebook yang ingin diuji (`01_BreadBasket`, `02_MarketBasket`, `03_Retail_Bian`, `04_MarketBasket_Analysis`, atau `05_MarketBasket_Optimisation`).
 2. Jalankan notebook menggunakan Jupyter Notebook, JupyterLab, atau VS Code.
 3. Pastikan file CSV terkait berada pada direktori yang sama dengan notebook.
 4. Eksekusi sel dari atas ke bawah untuk melihat hasil perhitungan dan visualisasi.
