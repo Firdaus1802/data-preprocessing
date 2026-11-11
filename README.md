@@ -40,6 +40,9 @@ Data mining IPYNB/
 ├── 06_Healthcare_Stroke/
 │   ├── healthcare_dataset_stroke_data.csv  # Dataset rekam medis pasien stroke (5.110 baris, 12 atribut)
 │   └── healthcare_stroke_preprocessing.ipynb # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
+├── 07_Retail_Dirty_Transactions/
+│   ├── retail_transactions_5500_dirty.csv  # Dataset transaksi ritel kotor / dirty (5.500 baris, 3 atribut)
+│   └── retail_dirty_preprocessing.ipynb    # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── _backup_arsip/                       # Arsip file eksperimen
 └── README.md
 ```
@@ -108,11 +111,22 @@ Setiap notebook mencakup empat tahapan utama pra-pemrosesan data:
 - **Distribusi Target:** 249 pasien positif stroke (4,87%) dan 4.861 pasien negatif stroke (95,13%).
 - **Outlier:** Berdasarkan analisis parameter klinis menggunakan metode IQR, atribut `avg_glucose_level` memiliki kuartil $Q1 = 77,25$, $Q3 = 114,09$, dan batas atas outlier $169,36$ mg/dL. Ditemukan 627 pasien outlier dengan kadar gula darah tinggi hingga 271,7 mg/dL.
 
+### 7. Retail Dirty Transactions Dataset (`07_Retail_Dirty_Transactions`)
+
+- **Jumlah Baris & Kolom:** 5.500 baris transaksi dan 3 atribut (`InvoiceNo`, `Description`, `Quantity`).
+- **Identifier:** Kolom `InvoiceNo` mencakup 1.201 nomor faktur unik dengan 20 ragam produk kebutuhan harian.
+- **Missing Value:** Ditemukan 279 nilai kosong (5,07% pada kolom `Description` atau 1,69% terhadap total sel) yang divisualisasikan dengan Heatmap.
+- **Duplikat:** 114 baris duplikat penuh.
+- **Karakteristik Data Kotor (Dirty):**
+  - Terdapat 558 baris transaksi batal (*cancellation*) yang diawali kode `'C'` pada `InvoiceNo`.
+  - Terdapat 286 baris transaksi dengan kuantitas negatif (-1 s.d -3) yang merepresentasikan retur barang.
+- **Outlier:** Berdasarkan ukuran keranjang belanja per faktur `InvoiceNo`, kuartil $Q1 = 1,0$, $Q3 = 7,0$, $IQR = 6,0$, dan batas atas outlier adalah 16,0 item. Seluruh transaksi berada dalam rentang wajar (maksimal 16 item per faktur belanja).
+
 ---
 
 ## Cara Menjalankan
 
-1. Masuk ke direktori notebook yang ingin diuji (`01_BreadBasket`, `02_MarketBasket`, `03_Retail_Bian`, `04_MarketBasket_Analysis`, `05_MarketBasket_Optimisation`, atau `06_Healthcare_Stroke`).
+1. Masuk ke direktori notebook yang ingin diuji (`01_BreadBasket`, `02_MarketBasket`, `03_Retail_Bian`, `04_MarketBasket_Analysis`, `05_MarketBasket_Optimisation`, `06_Healthcare_Stroke`, atau `07_Retail_Dirty_Transactions`).
 2. Jalankan notebook menggunakan Jupyter Notebook, JupyterLab, atau VS Code.
 3. Pastikan file CSV terkait berada pada direktori yang sama dengan notebook.
 4. Eksekusi sel dari atas ke bawah untuk melihat hasil perhitungan dan visualisasi.
