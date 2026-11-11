@@ -1,6 +1,15 @@
 # Arsip File Eksperimen & Data Mentah
 
-Folder ini menyimpan file-file draf eksperimen, skrip uji coba awal, serta dataset referensi yang digunakan selama proses eksplorasi:
+Folder ini menyimpan file-file draf eksperimen, modul cadangan, serta dataset referensi yang digunakan selama proses eksplorasi:
+
+## Modul Eksperimen Cadangan
+
+- `arsip_01_BreadBasket/`: Modul dataset transaksi kafe & toko roti (BreadBasket DMS, 21.293 baris).
+- `arsip_02_MarketBasket/`: Modul dataset matriks biner produk (1.500 baris).
+- `arsip_04_MarketBasket_Analysis/`: Modul dataset keranjang belanja horizontal XLSX (1.863 baris).
+- `arsip_05_MarketBasket_Optimisation/`: Modul dataset benchmark internasional Kaggle (7.501 baris).
+
+## File Draf & Skrip Eksperimen
 
 - `arsip_apriori_rules.ipynb`: Draf awal implementasi algoritma Apriori / Association Rule Mining.
 - `arsip_bread_basket_draft.ipynb`: Draf eksplorasi awal dataset BreadBasket.
