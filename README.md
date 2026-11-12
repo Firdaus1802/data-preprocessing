@@ -47,13 +47,14 @@ Data mining IPYNB/
 
 ## Cakupan Analisis Preprocessing
 
-Setiap notebook mencakup empat tahapan utama pra-pemrosesan data (disusun dalam 21 langkah modular terstandarisasi, dengan total 64 sel termasuk penjelasan dosen):
+Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 23 langkah modular terstandarisasi, dengan total 70 sel termasuk penjelasan naratif akademis untuk dosen):
 
 1. **Pemeriksaan Dimensi & Struktur Data:** Menghitung jumlah record, jumlah kolom atribut, tipe data, serta sampel data (`head` dan `tail`).
-2. **Analisis Missing Value:** Mendeteksi nilai kosong per kolom, total agregat, persentase nilai kosong, serta visualisasi sebaran menggunakan Heatmap.
-3. **Analisis Data Duplikat & Transaksi Unik:** Mengevaluasi baris duplikat penuh serta menghitung integritas identifier transaksi (`Transaction_ID`, `id`, `InvoiceNo`, `Order ID`).
-4. **Deteksi Outlier:** Mengidentifikasi data pencilan atau anomali menggunakan metode statistik Interquartile Range (IQR John Tukey) dan visualisasi Boxplot.
-5. **Penjelasan untuk Dosen:** Sel markdown interpretatif di bawah setiap output komputasi untuk membekali mahasiswa dengan dasar teori, angka pembuktian, dan jawaban siap pakai saat diuji dosen.
+2. **Analisis Missing Value:** Mendeteksi nilai kosong per kolom, total agregat, persentase nilai kosong, serta visualisasi sebaran menggunakan Heatmap awal sebelum penanganan.
+3. **Penanggulangan Missing Value & Verifikasi Heatmap:** Menerapkan teknik imputasi data yang sesuai karakteristik atribut (Modus/Median/Label Khusus) dan memvalidasi kebersihan data secara visual dengan Heatmap pasca penanggulangan (0 missing value tersisa).
+4. **Analisis Data Duplikat & Transaksi Unik:** Mengevaluasi baris duplikat penuh serta menghitung integritas identifier transaksi (`Transaction_ID`, `id`, `InvoiceNo`, `Order ID`).
+5. **Deteksi Outlier:** Mengidentifikasi data pencilan atau anomali menggunakan metode statistik Interquartile Range (IQR John Tukey) dan visualisasi Boxplot.
+6. **Penjelasan untuk Dosen:** Sel markdown interpretatif di bawah setiap output komputasi untuk membekali mahasiswa dengan dasar teori, angka pembuktian, dan jawaban siap pakai saat diuji dosen.
 
 ---
 
