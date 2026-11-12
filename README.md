@@ -30,7 +30,8 @@ Data mining IPYNB/
 │   ├── retail_transactions_5500_dirty.csv     # Dataset transaksi ritel kotor / dirty (5.500 baris, 3 atribut)
 │   └── retail_dirty_preprocessing.ipynb       # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── 04_Superstore_Sales/
-│   ├── superstore_sales.csv                   # Dataset transaksi penjualan Superstore (9.818 baris, 18 atribut)
+│   ├── trains.csv                             # Dataset transaksi penjualan Superstore (9.818 baris, 18 atribut)
+│   ├── superstore_sales.csv                   # Salinan dataset identik (kompatibilitas nama)
 │   └── superstore_sales_preprocessing.ipynb   # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── _backup_arsip/                             # Arsip eksperimen & modul cadangan
 │   ├── arsip_01_BreadBasket/                  # Cadangan dataset BreadBasket (21.293 baris)
@@ -87,14 +88,14 @@ Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 2
   - Terdapat 286 baris transaksi dengan kuantitas negatif (-1 s.d -3) yang merepresentasikan retur barang.
 - **Outlier:** Berdasarkan ukuran keranjang belanja per faktur `InvoiceNo`, kuartil $Q1 = 2,0$, $Q3 = 7,0$, $IQR = 5,0$, dan batas atas outlier adalah $14,5$ item. Ditemukan 1 transaksi outlier dengan volume belanja 16 item (`INV1467`).
 
-### 4. Superstore Sales Dataset (`04_Superstore_Sales`)
+### 4. Superstore Sales Dataset (`04_Superstore_Sales` / `trains.csv`)
 
 - **Jumlah Baris & Kolom:** 9.818 baris transaksi ritel dan 18 atribut (`Row ID`, `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Customer Name`, `Segment`, `Country`, `City`, `State`, `Postal Code`, `Region`, `Product ID`, `Category`, `Sub-Category`, `Product Name`, `Sales`).
 - **Identifier:** Kolom `Order ID` mencakup 4.922 nomor pesanan unik belanja.
 - **Missing Value:** Ditemukan 50 nilai kosong (hanya pada atribut `Postal Code` untuk area non-standar logistik) atau 0,03% terhadap total sel keseluruhan (0,51% pada kolom `Postal Code`).
-- **Duplikat & Penanggulangan:** Ditemukan 17 baris duplikat penuh yang dihapus menggunakan `drop_duplicates()`, menghasilkan 9.801 baris data transaksi bersih.
-- **Distribusi Kategori:** Office Supplies mendominasi 5.909 transaksi (60,29%), Furniture 2.079 transaksi (21,21%), dan Technology 1.813 transaksi (18,50%).
-- **Outlier:** Berdasarkan nilai moneter penjualan (`Sales`), kuartil $Q1 = \$17,25$, $Q3 = \$210,58$, $IQR = \$193,33$, dan batas atas outlier adalah $\$500,58$. Ditemukan 1.145 transaksi outlier (11,68% dari total data) bernilai tinggi hingga mencapai $\$22.638,48$ untuk pengadaan peralatan kantor komersial.
+- **Duplikat & Penanggulangan:** Ditemukan 18 baris duplikat penuh yang dihapus menggunakan `drop_duplicates()`, menghasilkan 9.800 baris data transaksi bersih.
+- **Distribusi Kategori:** Office Supplies mendominasi 5.909 transaksi (60,30%), Furniture 2.078 transaksi (21,20%), dan Technology 1.813 transaksi (18,50%).
+- **Outlier:** Berdasarkan nilai moneter penjualan (`Sales`), kuartil $Q1 = \$17,25$, $Q3 = \$210,61$, $IQR = \$193,36$, dan batas atas outlier adalah $\$500,64$. Ditemukan 1.145 transaksi outlier (11,68% dari total data) bernilai tinggi hingga mencapai $\$22.638,48$ untuk pengadaan peralatan kantor komersial.
 
 ---
 
