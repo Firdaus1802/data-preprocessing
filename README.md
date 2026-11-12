@@ -31,7 +31,6 @@ Data mining IPYNB/
 │   └── retail_dirty_preprocessing.ipynb       # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── 04_Superstore_Sales/
 │   ├── trains.csv                             # Dataset transaksi penjualan Superstore (9.818 baris, 18 atribut)
-│   ├── train.csv                              # Salinan dataset identik (kompatibilitas nama)
 │   └── superstore_sales_preprocessing.ipynb   # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── _backup_arsip/                             # Arsip eksperimen & modul cadangan
 │   ├── arsip_01_BreadBasket/                  # Cadangan dataset BreadBasket (21.293 baris)
