@@ -30,8 +30,7 @@ Data mining IPYNB/
 │   ├── retail_transactions_5500_dirty.csv     # Dataset transaksi ritel kotor / dirty (5.500 baris, 3 atribut)
 │   └── retail_dirty_preprocessing.ipynb       # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── 04_Superstore_Sales/
-│   ├── trains.csv                             # Dataset transaksi penjualan Superstore (9.818 baris, 18 atribut)
-│   ├── superstore_sales.csv                   # Salinan dataset identik (kompatibilitas nama)
+│   ├── train.csv                              # Dataset transaksi penjualan Superstore (9.818 baris, 18 atribut)
 │   └── superstore_sales_preprocessing.ipynb   # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
 ├── _backup_arsip/                             # Arsip eksperimen & modul cadangan
 │   ├── arsip_01_BreadBasket/                  # Cadangan dataset BreadBasket (21.293 baris)
@@ -88,7 +87,7 @@ Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 2
   - Terdapat 286 baris transaksi dengan kuantitas negatif (-1 s.d -3) yang merepresentasikan retur barang.
 - **Outlier:** Berdasarkan ukuran keranjang belanja per faktur `InvoiceNo`, kuartil $Q1 = 2,0$, $Q3 = 7,0$, $IQR = 5,0$, dan batas atas outlier adalah $14,5$ item. Ditemukan 1 transaksi outlier dengan volume belanja 16 item (`INV1467`).
 
-### 4. Superstore Sales Dataset (`04_Superstore_Sales` / `trains.csv`)
+### 4. Superstore Sales Dataset (`04_Superstore_Sales` / `train.csv`)
 
 - **Jumlah Baris & Kolom:** 9.818 baris transaksi ritel dan 18 atribut (`Row ID`, `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Customer Name`, `Segment`, `Country`, `City`, `State`, `Postal Code`, `Region`, `Product ID`, `Category`, `Sub-Category`, `Product Name`, `Sales`).
 - **Identifier:** Kolom `Order ID` mencakup 4.922 nomor pesanan unik belanja.
