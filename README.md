@@ -47,12 +47,12 @@ Data mining IPYNB/
 
 ## Cakupan Analisis Preprocessing
 
-Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 23 langkah modular terstandarisasi, dengan total 70 sel: 1 sel judul dan 23 paket operasi yang memuat deskripsi langkah, kode program, output komputasi, serta sel narasi `Penjelasan Hasil`):
+Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 24 langkah modular terstandarisasi, dengan total 73 sel: 1 sel judul dan 24 paket operasi yang memuat deskripsi langkah, kode program, output komputasi, serta sel narasi `Penjelasan Hasil`):
 
 1. **Pemeriksaan Dimensi & Struktur Data:** Menghitung jumlah record, jumlah kolom atribut, tipe data, serta sampel data (`head` dan `tail`).
 2. **Analisis Missing Value:** Mendeteksi nilai kosong per kolom, total agregat, persentase nilai kosong, serta visualisasi sebaran menggunakan Heatmap awal sebelum penanganan.
 3. **Penanggulangan Missing Value & Verifikasi Heatmap:** Menerapkan teknik imputasi data yang sesuai karakteristik atribut (Modus/Median/Label Khusus) dan memvalidasi kebersihan data secara visual dengan Heatmap pasca penanggulangan (0 missing value tersisa).
-4. **Analisis Data Duplikat & Transaksi Unik:** Mengevaluasi baris duplikat penuh serta menghitung integritas identifier transaksi (`Transaction_ID`, `id`, `InvoiceNo`, `Order ID`).
+4. **Analisis & Penanggulangan Data Duplikat:** Mendeteksi baris duplikat penuh, menghapus data duplikat (`drop_duplicates()`) guna menjaga validitas data, serta menghitung integritas identifier transaksi (`Transaction_ID`, `id`, `InvoiceNo`, `Order ID`).
 5. **Deteksi Outlier:** Mengidentifikasi data pencilan atau anomali menggunakan metode statistik Interquartile Range (IQR John Tukey) dan visualisasi Boxplot.
 
 ---
@@ -64,15 +64,15 @@ Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 2
 - **Jumlah Baris & Kolom:** 5.050 baris item transaksi dan 5 atribut (`Transaction_ID`, `Transaction_Date`, `Product`, `Category`, `Quantity`).
 - **Identifier:** Kolom `Transaction_ID` mencakup 1.500 nomor transaksi unik dengan 22 ragam produk ritel.
 - **Missing Value:** Ditemukan 50 nilai kosong (25 pada kolom `Category` dan 25 pada kolom `Quantity`) yang divisualisasikan dengan Heatmap.
-- **Duplikat:** 40 baris duplikat penuh transaksi.
-- **Outlier:** Berdasarkan ukuran keranjang belanja per transaksi, kuartil $Q1 = 3,0$, $Q3 = 4,0$, $IQR = 1,0$, dengan batas atas outlier $5,5$ item. Ditemukan 3 transaksi outlier dengan volume belanja 6 item (`TRX0147`, `TRX0533`, `TRX0561`).
+- **Duplikat & Penanggulangan:** Ditemukan 40 baris duplikat penuh transaksi yang dihapus menggunakan `drop_duplicates()`, menghasilkan 5.010 baris data bersih.
+- **Outlier:** Berdasarkan ukuran keranjang belanja per transaksi, kuartil $Q1 = 3,0$, $Q3 = 4,0$, $IQR = 1,0$, dengan batas atas outlier $5,5$ item. Setelah duplikat dibersihkan, volume belanja maksimal adalah 5 item sehingga tidak ada lagi transaksi yang melebihi batas atas (0 outlier).
 
 ### 2. Healthcare Stroke Dataset (`02_Healthcare_Stroke`)
 
 - **Jumlah Baris & Kolom:** 5.110 baris data pasien dan 12 atribut klinis serta demografis.
 - **Identifier:** Kolom `id` mencakup 5.110 nomor rekam medis pasien unik.
 - **Missing Value:** Ditemukan 201 nilai kosong (3,93% pada kolom `bmi` atau 0,33% terhadap seluruh sel) yang divisualisasikan dengan Heatmap.
-- **Duplikat:** 0 baris duplikat penuh.
+- **Duplikat & Penanggulangan:** 0 baris duplikat penuh, verifikasi `drop_duplicates()` memastikan dataset tetap utuh 5.110 baris.
 - **Distribusi Target:** 249 pasien positif stroke (4,87%) dan 4.861 pasien negatif stroke (95,13%).
 - **Outlier:** Berdasarkan analisis parameter klinis menggunakan metode IQR, atribut `avg_glucose_level` memiliki kuartil $Q1 = 77,25$, $Q3 = 114,09$, $IQR = 36,84$, dan batas atas outlier $169,36$ mg/dL. Ditemukan 627 pasien outlier dengan kadar gula darah tinggi hingga 271,74 mg/dL.
 
@@ -81,20 +81,20 @@ Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 2
 - **Jumlah Baris & Kolom:** 5.500 baris transaksi dan 3 atribut (`InvoiceNo`, `Description`, `Quantity`).
 - **Identifier:** Kolom `InvoiceNo` mencakup 1.201 nomor faktur unik dengan 20 ragam produk kebutuhan harian.
 - **Missing Value:** Ditemukan 279 nilai kosong (5,07% pada kolom `Description` atau 1,69% terhadap total sel) yang divisualisasikan dengan Heatmap.
-- **Duplikat:** 114 baris duplikat penuh.
+- **Duplikat & Penanggulangan:** Ditemukan 114 baris duplikat penuh yang dihapus menggunakan `drop_duplicates()`, menghasilkan 5.386 baris data transaksi bersih.
 - **Karakteristik Data Kotor (Dirty):**
   - Terdapat 558 baris transaksi batal (*cancellation*) yang diawali kode `'C'` pada `InvoiceNo`.
   - Terdapat 286 baris transaksi dengan kuantitas negatif (-1 s.d -3) yang merepresentasikan retur barang.
-- **Outlier:** Berdasarkan ukuran keranjang belanja per faktur `InvoiceNo`, kuartil $Q1 = 1,0$, $Q3 = 7,0$, $IQR = 6,0$, dan batas atas outlier adalah $16,0$ item. Seluruh transaksi berada dalam rentang wajar (maksimal 16 item per faktur belanja), sehingga outlier bernilai 0.
+- **Outlier:** Berdasarkan ukuran keranjang belanja per faktur `InvoiceNo`, kuartil $Q1 = 2,0$, $Q3 = 7,0$, $IQR = 5,0$, dan batas atas outlier adalah $14,5$ item. Ditemukan 1 transaksi outlier dengan volume belanja 16 item (`INV1467`).
 
 ### 4. Superstore Sales Dataset (`04_Superstore_Sales`)
 
 - **Jumlah Baris & Kolom:** 9.818 baris transaksi ritel dan 18 atribut (`Row ID`, `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Customer Name`, `Segment`, `Country`, `City`, `State`, `Postal Code`, `Region`, `Product ID`, `Category`, `Sub-Category`, `Product Name`, `Sales`).
 - **Identifier:** Kolom `Order ID` mencakup 4.922 nomor pesanan unik belanja.
 - **Missing Value:** Ditemukan 50 nilai kosong (hanya pada atribut `Postal Code` untuk area non-standar logistik) atau 0,03% terhadap total sel keseluruhan (0,51% pada kolom `Postal Code`).
-- **Duplikat:** 18 baris duplikat penuh.
-- **Distribusi Kategori:** Office Supplies mendominasi 5.919 transaksi (60,29%), Furniture 2.082 transaksi (21,21%), dan Technology 1.817 transaksi (18,51%).
-- **Outlier:** Berdasarkan nilai moneter penjualan (`Sales`), kuartil $Q1 = \$17,25$, $Q3 = \$210,68$, $IQR = \$193,43$, dan batas atas outlier adalah $\$500,83$. Ditemukan 1.149 transaksi outlier bernilai tinggi hingga mencapai $\$22.638,48$ untuk pengadaan peralatan kantor komersial.
+- **Duplikat & Penanggulangan:** Ditemukan 17 baris duplikat penuh yang dihapus menggunakan `drop_duplicates()`, menghasilkan 9.801 baris data transaksi bersih.
+- **Distribusi Kategori:** Office Supplies mendominasi 5.909 transaksi (60,29%), Furniture 2.079 transaksi (21,21%), dan Technology 1.813 transaksi (18,50%).
+- **Outlier:** Berdasarkan nilai moneter penjualan (`Sales`), kuartil $Q1 = \$17,25$, $Q3 = \$210,58$, $IQR = \$193,33$, dan batas atas outlier adalah $\$500,58$. Ditemukan 1.145 transaksi outlier (11,68% dari total data) bernilai tinggi hingga mencapai $\$22.638,48$ untuk pengadaan peralatan kantor komersial.
 
 ---
 
