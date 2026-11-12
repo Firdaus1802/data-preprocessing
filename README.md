@@ -47,7 +47,7 @@ Data mining IPYNB/
 
 ## Cakupan Analisis Preprocessing
 
-Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 23 langkah modular terstandarisasi, dengan total 47 sel: 1 sel judul dan 23 pasang sel deskripsi operasi beserta kode program):
+Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 23 langkah modular terstandarisasi, dengan total 70 sel: 1 sel judul dan 23 paket operasi yang memuat deskripsi langkah, kode program, output komputasi, serta sel narasi `Penjelasan Hasil`):
 
 1. **Pemeriksaan Dimensi & Struktur Data:** Menghitung jumlah record, jumlah kolom atribut, tipe data, serta sampel data (`head` dan `tail`).
 2. **Analisis Missing Value:** Mendeteksi nilai kosong per kolom, total agregat, persentase nilai kosong, serta visualisasi sebaran menggunakan Heatmap awal sebelum penanganan.
