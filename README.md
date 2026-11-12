@@ -2,7 +2,7 @@
 
 Repositori ini memuat tahap pra-pemrosesan data (*Data Understanding & Preprocessing*) untuk mata kuliah Konsep Data Mining, S1 Sistem Informasi Universitas Gunadarma (Kelas 3KA31 - Kelompok 4).
 
-Repositori ini difokuskan pada empat modul dataset utama pilihan kelompok, serta modul-modul eksperimen cadangan yang disimpan di dalam direktori arsip. Setiap notebook aktif telah dilengkapi dengan bagian narasi akademis terstruktur (**Penjelasan / Jawaban untuk Dosen**) di setiap sel output operasi.
+Repositori ini difokuskan pada empat modul dataset utama pilihan kelompok, serta modul-modul eksperimen cadangan yang disimpan di dalam direktori arsip. Setiap notebook aktif dirancang bersih dan modular dengan deskripsi teknis di setiap langkah kode program.
 
 ---
 
@@ -47,14 +47,13 @@ Data mining IPYNB/
 
 ## Cakupan Analisis Preprocessing
 
-Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 23 langkah modular terstandarisasi, dengan total 70 sel termasuk penjelasan naratif akademis untuk dosen):
+Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 23 langkah modular terstandarisasi, dengan total 47 sel: 1 sel judul dan 23 pasang sel deskripsi operasi beserta kode program):
 
 1. **Pemeriksaan Dimensi & Struktur Data:** Menghitung jumlah record, jumlah kolom atribut, tipe data, serta sampel data (`head` dan `tail`).
 2. **Analisis Missing Value:** Mendeteksi nilai kosong per kolom, total agregat, persentase nilai kosong, serta visualisasi sebaran menggunakan Heatmap awal sebelum penanganan.
 3. **Penanggulangan Missing Value & Verifikasi Heatmap:** Menerapkan teknik imputasi data yang sesuai karakteristik atribut (Modus/Median/Label Khusus) dan memvalidasi kebersihan data secara visual dengan Heatmap pasca penanggulangan (0 missing value tersisa).
 4. **Analisis Data Duplikat & Transaksi Unik:** Mengevaluasi baris duplikat penuh serta menghitung integritas identifier transaksi (`Transaction_ID`, `id`, `InvoiceNo`, `Order ID`).
 5. **Deteksi Outlier:** Mengidentifikasi data pencilan atau anomali menggunakan metode statistik Interquartile Range (IQR John Tukey) dan visualisasi Boxplot.
-6. **Penjelasan untuk Dosen:** Sel markdown interpretatif di bawah setiap output komputasi untuk membekali mahasiswa dengan dasar teori, angka pembuktian, dan jawaban siap pakai saat diuji dosen.
 
 ---
 
@@ -104,4 +103,4 @@ Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 2
 1. Masuk ke direktori notebook yang ingin diuji (`01_Retail_Bian`, `02_Healthcare_Stroke`, `03_Retail_Dirty_Transactions`, atau `04_Superstore_Sales`).
 2. Jalankan notebook menggunakan Jupyter Notebook, JupyterLab, atau VS Code.
 3. Pastikan file CSV terkait berada pada direktori yang sama dengan notebook.
-4. Eksekusi sel dari atas ke bawah untuk melihat hasil perhitungan, visualisasi diagram, serta membaca narasi penjelasan akademis untuk dosen.
+4. Eksekusi sel dari atas ke bawah untuk melihat hasil perhitungan dan visualisasi diagram.
