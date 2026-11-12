@@ -91,7 +91,7 @@ Setiap notebook mencakup empat tahapan utama pra-pemrosesan data (disusun dalam 
 
 - **Jumlah Baris & Kolom:** 9.818 baris transaksi ritel dan 18 atribut (`Row ID`, `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Customer Name`, `Segment`, `Country`, `City`, `State`, `Postal Code`, `Region`, `Product ID`, `Category`, `Sub-Category`, `Product Name`, `Sales`).
 - **Identifier:** Kolom `Order ID` mencakup 4.922 nomor pesanan unik belanja.
-- **Missing Value:** Ditemukan 11 nilai kosong (hanya pada atribut `Postal Code` untuk area Burlington, Vermont) atau 0,01% terhadap total sel keseluruhan.
+- **Missing Value:** Ditemukan 50 nilai kosong (hanya pada atribut `Postal Code` untuk area non-standar logistik) atau 0,03% terhadap total sel keseluruhan (0,51% pada kolom `Postal Code`).
 - **Duplikat:** 18 baris duplikat penuh.
 - **Distribusi Kategori:** Office Supplies mendominasi 5.919 transaksi (60,29%), Furniture 2.082 transaksi (21,21%), dan Technology 1.817 transaksi (18,51%).
 - **Outlier:** Berdasarkan nilai moneter penjualan (`Sales`), kuartil $Q1 = \$17,25$, $Q3 = \$210,68$, $IQR = \$193,43$, dan batas atas outlier adalah $\$500,83$. Ditemukan 1.149 transaksi outlier bernilai tinggi hingga mencapai $\$22.638,48$ untuk pengadaan peralatan kantor komersial.
