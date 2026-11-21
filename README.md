@@ -32,6 +32,10 @@ Data mining IPYNB/
 ├── 04_Superstore_Sales/
 │   ├── trains.csv                             # Dataset transaksi penjualan Superstore (9.818 baris, 18 atribut)
 │   └── superstore_sales_preprocessing.ipynb   # Notebook preprocessing (Dimensi, Missing Value, Duplikat, Outlier)
+├── 05_Decision_Tree_Iris/
+│   ├── iris.csv                               # Dataset bunga Iris dari Kaggle (150 baris, 6 atribut)
+│   ├── play_tennis.csv                        # Dataset Play Tennis materi kuliah slide 58-59 (14 baris)
+│   └── decision_tree_iris.ipynb               # Notebook klasifikasi Decision Tree (24 langkah terstandarisasi)
 ├── _backup_arsip/                             # Arsip eksperimen & modul cadangan
 │   ├── arsip_01_BreadBasket/                  # Cadangan dataset BreadBasket (21.293 baris)
 │   ├── arsip_02_MarketBasket/                 # Cadangan dataset matriks biner produk (1.500 baris)
@@ -96,11 +100,25 @@ Setiap notebook mencakup lima tahapan utama pra-pemrosesan data (disusun dalam 2
 - **Distribusi Kategori:** Office Supplies mendominasi 5.909 transaksi (60,30%), Furniture 2.078 transaksi (21,20%), dan Technology 1.813 transaksi (18,50%).
 - **Outlier:** Berdasarkan nilai moneter penjualan (`Sales`), kuartil $Q1 = \$17,25$, $Q3 = \$210,61$, $IQR = \$193,36$, dan batas atas outlier adalah $\$500,64$. Ditemukan 1.145 transaksi outlier (11,68% dari total data) bernilai tinggi hingga mencapai $\$22.638,48$ untuk pengadaan peralatan kantor komersial.
 
+### 5. Klasifikasi Decision Tree Iris (`05_Decision_Tree_Iris` - Tugas V-Class)
+
+- **Dataset & Sumber:** Dataset bunga Iris dari Kaggle / UCI Machine Learning (`iris.csv`) berisi 150 baris data observasi dan 4 fitur morfologi bunga (`SepalLengthCm`, `SepalWidthCm`, `PetalLengthCm`, `PetalWidthCm`).
+- **Target Klasifikasi:** 3 spesies bunga Iris (`Iris-setosa`, `Iris-versicolor`, `Iris-virginica`) dengan distribusi seimbang masing-masing 50 sampel.
+- **Kualitas Data:** 0 missing value dan 0 data duplikat.
+- **Pembagian Data:** 80% data latih (120 sampel) dan 20% data uji (30 sampel).
+- **Performa Model:**
+  - Kriteria pemisahan: Gini Index dengan pembatasan `max_depth = 3`.
+  - **Akurasi Model:** **96,67%** (29 dari 30 data uji diprediksi dengan benar).
+  - **Confusion Matrix:** Setosa (10/10 benar), Versicolor (9/10 benar), Virginica (10/10 benar).
+  - Nilai Precision, Recall, dan F1-Score rata-rata mencapai **0,97**.
+- **Hasil Pohon Keputusan:** Simpul akar (*root node*) memisahkan `Iris-setosa` secara mutlak dengan kondisi $PetalLength \le 2.45$ cm ($Gini = 0.0$).
+- **Materi Pendukung:** Disertakan juga dataset `play_tennis.csv` (14 baris) sebagai referensi materi kuliah slide 58-59.
+
 ---
 
 ## Cara Menjalankan
 
-1. Masuk ke direktori notebook yang ingin diuji (`01_Retail_Bian`, `02_Healthcare_Stroke`, `03_Retail_Dirty_Transactions`, atau `04_Superstore_Sales`).
+1. Masuk ke direktori notebook yang ingin diuji (`01_Retail_Bian`, `02_Healthcare_Stroke`, `03_Retail_Dirty_Transactions`, `04_Superstore_Sales`, atau `05_Decision_Tree_Iris`).
 2. Jalankan notebook menggunakan Jupyter Notebook, JupyterLab, atau VS Code.
 3. Pastikan file CSV terkait berada pada direktori yang sama dengan notebook.
 4. Eksekusi sel dari atas ke bawah untuk melihat hasil perhitungan dan visualisasi diagram.
