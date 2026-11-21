@@ -10,8 +10,10 @@ from docx2pdf import convert
 import fitz
 
 assets_dir = os.path.abspath('05_Decision_Tree_Iris/assets')
-docx_test = os.path.abspath('05_Decision_Tree_Iris/test_adjusted.docx')
-pdf_test = os.path.abspath('05_Decision_Tree_Iris/test_adjusted.pdf')
+docx_out_local = os.path.abspath('05_Decision_Tree_Iris/Tugas_VClass_M8_Decision_Tree_Firdaus_Dhuha_Prabowo_10124497_3KA31.docx')
+docx_out_downloads = os.path.abspath('c:/Users/HP/Downloads/Tugas_VClass_M8_Decision_Tree_Firdaus_Dhuha_Prabowo_10124497_3KA31.docx')
+pdf_out_local = os.path.abspath('05_Decision_Tree_Iris/Tugas_VClass_M8_Decision_Tree_Firdaus_Dhuha_Prabowo_10124497_3KA31.pdf')
+pdf_out_downloads = os.path.abspath('c:/Users/HP/Downloads/Tugas_VClass_M8_Decision_Tree_Firdaus_Dhuha_Prabowo_10124497_3KA31.pdf')
 
 
 def set_cell_background(cell, fill_hex):
@@ -20,7 +22,7 @@ def set_cell_background(cell, fill_hex):
     tcPr.append(shd)
 
 
-def set_cell_margins(cell, top=60, bottom=60, left=80, right=80):
+def set_cell_margins(cell, top=40, bottom=40, left=60, right=60):
     tcPr = cell._tc.get_or_add_tcPr()
     tcMar = parse_xml(f'<w:tcMar {nsdecls("w")}><w:top w:w="{top}" w:type="dxa"/><w:bottom w:w="{bottom}" w:type="dxa"/><w:left w:w="{left}" w:type="dxa"/><w:right w:w="{right}" w:type="dxa"/></w:tcMar>')
     tcPr.append(tcMar)
@@ -63,11 +65,13 @@ def add_numpages_fields(run):
     run._r.append(fldChar3)
 
 
-def build_adjusted():
+def build_doc():
     doc = docx.Document()
     
     doc.core_properties.author = "Firdaus Dhuha Prabowo"
     doc.core_properties.title = "Tugas V-Class Konsep Data Mining (M8) - Klasifikasi Decision Tree"
+    doc.core_properties.subject = "Konsep Data Mining"
+    doc.core_properties.comments = "Universitas Gunadarma - S1 Sistem Informasi (3KA31)"
 
     for section in doc.sections:
         section.page_width = Inches(8.27)
@@ -211,14 +215,14 @@ def build_adjusted():
     p_line._p.get_or_add_pPr().append(pBdr)
 
     # Bagian A
-    add_h1("A. Soal Latihan dan Pemilihan Dataset")
+    add_h1("A. Soal Tugas dan Pemilihan Dataset")
     p_soal = doc.add_paragraph()
     p_soal.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     p_soal.paragraph_format.space_before = Pt(2)
     p_soal.paragraph_format.space_after = Pt(5)
     p_soal.paragraph_format.left_indent = Inches(0.25)
     p_soal.paragraph_format.right_indent = Inches(0.25)
-    r_soal_title = p_soal.add_run("Instruksi Soal Post-Test V-Class Pertemuan 8:\n")
+    r_soal_title = p_soal.add_run("Instruksi Soal Tugas V-Class Pertemuan 8:\n")
     r_soal_title.font.bold = True
     r_soal_title.font.size = Pt(10.5)
     r_soal = p_soal.add_run('"Latihan: Ambilah sebuah dataset sederhana, lalu buatlah pohon keputusan untuk dataset tersebut.. dataset bisa diambil bebas dari kaggle atau lainnya!"')
@@ -226,7 +230,7 @@ def build_adjusted():
     r_soal.font.size = Pt(10.5)
 
     add_p(
-        "Untuk memenuhi tugas praktikum V-Class ini, dataset yang dipilih adalah Iris Flower Dataset yang bersumber dari repositori Kaggle (Ronald A. Fisher / UCI Machine Learning). Alasan utama pemilihan dataset Iris adalah karena strukturnya yang kompak, memiliki 4 atribut numerik kontinu berdimensi riil, dan memiliki target kelas kategorikal (3 spesies). Dataset ini merupakan tolok ukur standar dalam pembelajaran konsep pemisahan biner (binary split), perhitungan tingkat kemurnian (Gini Impurity), serta visualisasi pemangkasan pohon keputusan (pruning) secara jelas tanpa kompleksitas dimensi yang berlebihan.",
+        "Untuk menyelesaikan tugas V-Class ini, dataset yang dipilih adalah Iris Flower Dataset yang bersumber dari repositori Kaggle (Ronald A. Fisher / UCI Machine Learning). Alasan utama pemilihan dataset Iris adalah karena strukturnya yang kompak, memiliki 4 atribut numerik kontinu berdimensi riil, dan memiliki target kelas kategorikal (3 spesies). Dataset ini merupakan tolok ukur standar dalam pembelajaran konsep pemisahan biner (binary split), perhitungan tingkat kemurnian (Gini Impurity), serta visualisasi pemangkasan pohon keputusan (pruning) secara jelas tanpa kompleksitas dimensi yang berlebihan.",
         indent=True
     )
 
@@ -444,7 +448,7 @@ def build_adjusted():
     # Bagian F
     add_h1("F. Hubungan dengan Teori Kuliah (Slide 58–59: Play Tennis & Pendekatan Greedy)")
     add_p(
-        "Pada materi perkuliahan Konsep Data Mining, dibahas contoh klasik penentuan keputusan bermain tenis (Play Tennis) menggunakan algoritma ID3/C4.5 berdasarkan atribut kondisi cuaca (Outlook, Temperature, Humidity, Wind). Hubungan penting antara materi kuliah tersebut dengan eksperimen dataset Iris ini adalah penerapan Pendekatan Greedy (Greedy Approach):",
+        "Pada materi perkuliahan Konsep Data Mining, dibahas contoh klasik penentuan keputusan bermain tenis (Play Tennis) menggunakan algoritma ID3/C4.5 berdasarkan atribut kondisi cuaca (Outlook, Temperature, Humidity, Wind). Hubungan penting antara materi kuliah tersebut dengan pengerjaan tugas dataset Iris ini adalah penerapan Pendekatan Greedy (Greedy Approach):",
         indent=True
     )
     add_p(
@@ -479,7 +483,7 @@ def build_adjusted():
     # Bagian H
     add_h1("H. Lampiran Kode Program Python (Scikit-Learn)")
     add_p(
-        "Berikut merupakan kode program lengkap yang digunakan dalam eksperimen ini menggunakan pustaka Python dan Scikit-Learn:"
+        "Berikut merupakan kode program lengkap yang digunakan dalam penyelesaian tugas ini menggunakan pustaka Python dan Scikit-Learn:"
     )
 
     code_script = (
@@ -515,13 +519,21 @@ def build_adjusted():
     r_code.font.size = Pt(8.0)
     r_code.font.color.rgb = RGBColor(0x10, 0x10, 0x10)
 
-    doc.save(docx_test)
-    print("Test docx built!")
-    convert(docx_test, pdf_test)
-    print("Test pdf converted!")
+    # Save DOCX
+    doc.save(docx_out_local)
+    print(f"DOCX created successfully at: {docx_out_local}")
+    shutil.copy2(docx_out_local, docx_out_downloads)
+    print(f"DOCX copied to: {docx_out_downloads}")
 
-    doc_fitz = fitz.open(pdf_test)
-    print(f"=== TEST RESULT: TOTAL PAGES = {len(doc_fitz)} ===")
+    # Convert to PDF via Word COM
+    print("Converting DOCX to PDF using native Microsoft Word engine...")
+    convert(docx_out_local, pdf_out_local)
+    print(f"PDF generated successfully at: {pdf_out_local}")
+    shutil.copy2(pdf_out_local, pdf_out_downloads)
+    print(f"PDF copied to: {pdf_out_downloads}")
+
+    doc_fitz = fitz.open(pdf_out_downloads)
+    print(f"=== RESULT: TOTAL PAGES = {len(doc_fitz)} ===")
     for i, page in enumerate(doc_fitz):
         lines = [l.strip() for l in page.get_text().split('\n') if l.strip()]
         print(f"Page {i+1}: {len(lines)} lines | Images: {len(page.get_images())}")
@@ -530,4 +542,4 @@ def build_adjusted():
 
 
 if __name__ == '__main__':
-    build_adjusted()
+    build_doc()
